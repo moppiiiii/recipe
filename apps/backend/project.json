@@ -19,6 +19,28 @@
           "buildTarget": "backend:build:production"
         }
       }
+    },
+    "check": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run backend:lint:check",
+          "pnpm run backend:prettier:check"
+        ],
+        "parallel": false
+      }
+    },
+    "fix": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run backend:lint:fix",
+          "pnpm run backend:prettier:fix"
+        ],
+        "parallel": false
+      }
     }
   }
 }

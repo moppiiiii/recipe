@@ -4,6 +4,28 @@
   "projectType": "application",
   "implicitDependencies": ["backend"],
   "targets": {
+    "check": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run backend-e2e:lint:check",
+          "pnpm run backend-e2e:prettier:check"
+        ],
+        "parallel": false
+      }
+    },
+    "fix": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run backend-e2e:lint:fix",
+          "pnpm run backend-e2e:prettier:fix"
+        ],
+        "parallel": false
+      }
+    },
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
