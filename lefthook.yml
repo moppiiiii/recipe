@@ -1,0 +1,7 @@
+pre-commit:
+  parallel: false
+  commands:
+    audit:
+      run: pnpm audit
+    eslint:fix:
+      run: pnpm fix && git add {staged_files}
