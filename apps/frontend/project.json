@@ -5,5 +5,28 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project frontend --web",
-  "targets": {}
+  "targets": {
+    "check": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run frontend:lint:check",
+          "pnpm run frontend:prettier:check"
+        ],
+        "parallel": false
+      }
+    },
+    "fix": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "pnpm run frontend:lint:fix",
+          "pnpm run frontend:prettier:fix"
+        ],
+        "parallel": false
+      }
+    }
+  }
 }
