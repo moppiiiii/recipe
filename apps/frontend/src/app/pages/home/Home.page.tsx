@@ -1,7 +1,8 @@
+import HomeTemplate from '@/app/components/templates/home/Home.template';
 import React from 'react';
 
 const HomePage: React.FC = () => {
-  return <div>Home Page</div>;
+  return <HomeTemplate />;
 };
 
 HomePage.whyDidYouRender = true;
