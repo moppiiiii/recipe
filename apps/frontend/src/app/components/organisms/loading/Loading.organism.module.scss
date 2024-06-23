@@ -1,0 +1,47 @@
+@import '@/app/styles/typography';
+@import '@/app/styles/responsive';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background: rgb(68 65 65 / 50%);
+
+  > .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    > .spinner {
+      border: 8px solid rgba(255, 203, 112, 0.3);
+      border-top: 8px solid rgba(248, 159, 51, 1);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 1s linear infinite;
+    }
+
+    > .loading-text {
+      @include body-xl;
+
+      color: gray;
+    }
+  }
+}
