@@ -5,4 +5,5 @@ export type HomeTemplateProps = {
   largeCategory: Category[];
   mediumCategory: Category[];
   smallCategory: Category[];
+  onClickItem: (categoryId: number) => void;
 };

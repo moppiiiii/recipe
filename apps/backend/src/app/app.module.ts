@@ -4,7 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RecipeResolver } from './resolvers/recipe/recipe.resolver';
+import { RecipeDetailResolver, RecipeResolver } from './resolvers/recipe/recipe.resolver';
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { RecipeResolver } from './resolvers/recipe/recipe.resolver';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, RecipeResolver],
+  providers: [AppService, RecipeResolver, RecipeDetailResolver],
 })
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
