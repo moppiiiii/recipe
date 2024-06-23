@@ -6,11 +6,11 @@
 
   padding: 18px 48px;
   background-color: var(--background-white);
-  border: 1px solid var(--separate-primary);
+  border: 2px solid var(--separate-primary);
   border-radius: 40px;
 
   &:hover {
-    border: 1px solid var(--separate-secondary);
+    border: 2px solid var(--separate-secondary);
   }
 }
 

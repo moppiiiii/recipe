@@ -18,12 +18,9 @@
     @include body-l;
 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    background: linear-gradient(90deg, rgba(255, 203, 112, 1) 0%, rgba(248, 159, 51, 1) 100%);
+    background: linear-gradient(90deg, var(--background-primary) 0%, var(--background-secondary) 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding: 0 10px;
-    border-radius: 5px;
   }
 }
 

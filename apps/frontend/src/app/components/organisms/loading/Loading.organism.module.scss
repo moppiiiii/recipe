@@ -21,7 +21,7 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
-  background: rgb(68 65 65 / 50%);
+  background: var(--background-gray);
 
   > .content-wrapper {
     display: flex;
@@ -30,18 +30,12 @@
     gap: 24px;
 
     > .spinner {
-      border: 8px solid rgba(255, 203, 112, 0.3);
-      border-top: 8px solid rgba(248, 159, 51, 1);
+      border: 8px solid var(--separate-gray);
+      border-top: 8px solid var(--separate-secondary);
       border-radius: 50%;
       width: 100px;
       height: 100px;
       animation: spin 1s linear infinite;
-    }
-
-    > .loading-text {
-      @include body-xl;
-
-      color: gray;
     }
   }
 }

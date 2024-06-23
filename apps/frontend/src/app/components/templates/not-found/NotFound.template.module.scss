@@ -1,0 +1,20 @@
+@import '@/app/styles/responsive';
+@import '@/app/styles/typography';
+
+.not-found-container {
+  background: linear-gradient(90deg, rgba(255, 203, 112, 1) 0%, rgba(248, 159, 51, 1) 100%);
+  height: calc(100vh - 80px);
+  padding: 64px;
+
+  > .not-found-wrapper {
+    height: 100%;
+    border-radius: 16px;
+    padding: 64px;
+    background-color: var(--background-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+}
