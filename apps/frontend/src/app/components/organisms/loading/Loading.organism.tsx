@@ -7,7 +7,6 @@ const Loading: React.FC = () => {
     <div className={styles['loading-container']}>
       <div className={styles['content-wrapper']}>
         <div className={styles['spinner']} />
-        <p className={styles['loading-text']}>Loading</p>
       </div>
     </div>
   );

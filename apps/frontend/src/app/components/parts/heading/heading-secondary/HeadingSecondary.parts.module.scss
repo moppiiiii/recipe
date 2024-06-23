@@ -3,6 +3,8 @@
 
 .heading-secondary {
   @include pc-title-h2;
+
+  color: var(--text-primary);
 }
 
 @include query('sp-style') {

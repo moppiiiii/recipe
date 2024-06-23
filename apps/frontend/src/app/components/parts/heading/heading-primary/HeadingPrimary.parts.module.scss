@@ -3,11 +3,12 @@
 
 .heading-primary {
   @include pc-title-h1;
+
+  color: var(--text-primary);
 }
 
 @include query('sp-style') {
   .heading-primary {
     @include sp-title-h1;
-    color: black;
   }
 }
