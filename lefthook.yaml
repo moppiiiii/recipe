@@ -3,5 +3,7 @@ pre-commit:
   commands:
     audit:
       run: pnpm audit
+    check:
+      run: pnpm check
     fix:
       run: pnpm fix && git add {staged_files}
