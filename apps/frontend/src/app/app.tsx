@@ -1,6 +1,7 @@
 import NxWelcome from './nx-welcome';
 
 import './styles/global.scss';
+import './wdyr';
 
 export function App() {
   return (
