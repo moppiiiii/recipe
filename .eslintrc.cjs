@@ -123,5 +123,5 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ['**/*.md', '**/dist/*'],
+  ignorePatterns: ['**/*.md', '**/dist/*', '**/wdyr.ts'],
 };
