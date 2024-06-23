@@ -1,4 +1,4 @@
 {
   "extends": ["plugin:@nx/react", "../../.eslintrc.cjs"],
-  "ignorePatterns": ["**/generated.ts"]
+  "ignorePatterns": ["**/generated.ts", "storybook-static"]
 }
