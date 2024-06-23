@@ -1,5 +1,7 @@
 import NxWelcome from './nx-welcome';
 
+import './styles/global.scss';
+
 export function App() {
   return (
     <div>
