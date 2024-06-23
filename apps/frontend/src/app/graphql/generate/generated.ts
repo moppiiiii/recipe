@@ -27,7 +27,31 @@ export type Category = {
 
 export type Query = {
   __typename?: 'Query';
+  recipeDetail: Array<RecipeDetailResource>;
   recipes: RecipeResource;
+};
+
+export type QueryRecipeDetailArgs = {
+  categoryId: Scalars['Int']['input'];
+};
+
+export type RecipeDetailResource = {
+  __typename?: 'RecipeDetailResource';
+  foodImageUrl: Scalars['String']['output'];
+  mediumImageUrl: Scalars['String']['output'];
+  nickname: Scalars['String']['output'];
+  pickup: Scalars['Float']['output'];
+  rank: Scalars['String']['output'];
+  recipeCost: Scalars['String']['output'];
+  recipeDescription: Scalars['String']['output'];
+  recipeId: Scalars['ID']['output'];
+  recipeIndication: Scalars['String']['output'];
+  recipeMaterial: Array<Scalars['String']['output']>;
+  recipePublishday: Scalars['String']['output'];
+  recipeTitle: Scalars['String']['output'];
+  recipeUrl: Scalars['String']['output'];
+  shop: Scalars['Float']['output'];
+  smallImageUrl: Scalars['String']['output'];
 };
 
 export type RecipeResource = {
@@ -35,6 +59,26 @@ export type RecipeResource = {
   large: Array<Category>;
   medium: Array<Category>;
   small: Array<Category>;
+};
+
+export type GetRecipeDetailQueryVariables = Exact<{
+  categoryId: Scalars['Int']['input'];
+}>;
+
+export type GetRecipeDetailQuery = {
+  __typename?: 'Query';
+  recipeDetail: Array<{
+    __typename?: 'RecipeDetailResource';
+    mediumImageUrl: string;
+    nickname: string;
+    recipeCost: string;
+    recipeDescription: string;
+    recipeId: string;
+    recipeIndication: string;
+    recipeMaterial: Array<string>;
+    recipeTitle: string;
+    recipeUrl: string;
+  }>;
 };
 
 export type GetRecipesQueryVariables = Exact<{ [key: string]: never }>;
@@ -49,6 +93,61 @@ export type GetRecipesQuery = {
   };
 };
 
+export const GetRecipeDetailDocument = gql`
+  query GetRecipeDetail($categoryId: Int!) {
+    recipeDetail(categoryId: $categoryId) {
+      mediumImageUrl
+      nickname
+      recipeCost
+      recipeDescription
+      recipeId
+      recipeIndication
+      recipeMaterial
+      recipeTitle
+      recipeUrl
+    }
+  }
+`;
+
+/**
+ * __useGetRecipeDetailQuery__
+ *
+ * To run a query within a React component, call `useGetRecipeDetailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetRecipeDetailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetRecipeDetailQuery({
+ *   variables: {
+ *      categoryId: // value for 'categoryId'
+ *   },
+ * });
+ */
+export function useGetRecipeDetailQuery(
+  baseOptions: Apollo.QueryHookOptions<GetRecipeDetailQuery, GetRecipeDetailQueryVariables> &
+    ({ variables: GetRecipeDetailQueryVariables; skip?: boolean } | { skip: boolean })
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>(GetRecipeDetailDocument, options);
+}
+export function useGetRecipeDetailLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>(GetRecipeDetailDocument, options);
+}
+export function useGetRecipeDetailSuspenseQuery(
+  baseOptions?: Apollo.SuspenseQueryHookOptions<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>(GetRecipeDetailDocument, options);
+}
+export type GetRecipeDetailQueryHookResult = ReturnType<typeof useGetRecipeDetailQuery>;
+export type GetRecipeDetailLazyQueryHookResult = ReturnType<typeof useGetRecipeDetailLazyQuery>;
+export type GetRecipeDetailSuspenseQueryHookResult = ReturnType<typeof useGetRecipeDetailSuspenseQuery>;
+export type GetRecipeDetailQueryResult = Apollo.QueryResult<GetRecipeDetailQuery, GetRecipeDetailQueryVariables>;
 export const GetRecipesDocument = gql`
   query GetRecipes {
     recipes {
