@@ -2,13 +2,32 @@ import React from 'react';
 import Header from '../../organisms/header/Header.organism';
 
 import styles from './Home.template.module.scss';
+import { HomeTemplateProps } from './type';
+import Loading from '../../organisms/loading/Loading.organism';
+import RecipeCategoryList from './_organisms/recipe-category-list/RecipeCategoryList.organism';
 
-const HomeTemplate: React.FC = () => {
+const HomeTemplate: React.FC<HomeTemplateProps> = ({ isLoading, largeCategory, mediumCategory, smallCategory }) => {
   return (
     <div>
+      {isLoading && <Loading />}
+
       <Header />
 
-      <div className={styles['home-container']}>Home Page</div>
+      <div className={styles['home-container']}>
+        <div className={styles['home-wrapper']}>
+          <div className={styles['category-wrapper']}>
+            <RecipeCategoryList title="大分類" category={largeCategory} />
+          </div>
+
+          <div className={styles['category-wrapper']}>
+            <RecipeCategoryList title="中分類" category={mediumCategory} />
+          </div>
+
+          <div className={styles['category-wrapper']}>
+            <RecipeCategoryList title="小分類" category={smallCategory} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
