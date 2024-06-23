@@ -121,6 +121,9 @@ module.exports = {
           version: 'detect',
         },
       },
+      rules: {
+        "react/prop-types": "off"
+      }
     },
   ],
   ignorePatterns: ['**/*.md', '**/dist/*', '**/wdyr.ts'],
