@@ -1,0 +1,11 @@
+$breakpoints: (
+  'sp-style': 768px,
+  'tab-style': 1024px,
+);
+
+@mixin query($breakpoint) {
+  /* stylelint-disable-next-line scss/no-global-function-names */
+  @media screen and (width < #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
