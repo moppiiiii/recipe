@@ -3,7 +3,6 @@
 
 .home-container {
   background: linear-gradient(90deg, rgba(255, 203, 112, 1) 0%, rgba(248, 159, 51, 1) 100%);
-  height: calc(100vh - 80px);
   padding: 64px;
 
   > .home-wrapper {
@@ -11,9 +10,37 @@
     border-radius: 16px;
     padding: 64px;
     background-color: var(--background-white);
+    gap: 48px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    > .category-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@include query('sp-style') {
+  .home-container {
+    background: linear-gradient(90deg, rgba(255, 203, 112, 1) 0%, rgba(248, 159, 51, 1) 100%);
+    padding: 16px;
+
+    > .home-wrapper {
+      height: 100%;
+      border-radius: 16px;
+      padding: 32px;
+      background-color: var(--background-white);
+      gap: 48px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > .category-wrapper {
+        width: 100%;
+      }
+    }
   }
 }
