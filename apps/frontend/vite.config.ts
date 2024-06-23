@@ -1,7 +1,9 @@
 /// <reference types='vitest' />
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vite';
+import sassDts from 'vite-plugin-sass-dts';
 
 export default defineConfig({
   root: __dirname,
@@ -17,7 +19,24 @@ export default defineConfig({
     host: 'localhost',
   },
 
-  plugins: [react(), nxViteTsPaths()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
+  },
+
+  plugins: [
+    react(),
+    nxViteTsPaths(),
+    sassDts({
+      enabledMode: ['development', 'production'],
+      global: {
+        generate: false,
+        outputFilePath: '',
+      },
+    }),
+  ],
 
   build: {
     outDir: '../../dist/apps/frontend',

@@ -1,0 +1,13 @@
+@import '@/app/styles/typography';
+@import '@/app/styles/responsive';
+
+.heading-primary {
+  @include pc-title-h1;
+}
+
+@include query('sp-style') {
+  .heading-primary {
+    @include sp-title-h1;
+    color: black;
+  }
+}
